@@ -1,0 +1,27 @@
+body{
+  background:#dfdfdf;
+}
+#jumbotron{
+  margin-bottom: 0%;
+  padding: 0px;
+}
+.header-image{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.fluid-container{
+  margin: 5% 10%;
+}
+.fluid-container .card{
+  width: 18rem;
+  margin-left: 10%;
+
+}
+.row{
+  margin-top:5%;
+}
+#footer{
+  background:grey;
+  height:3em;
+}
