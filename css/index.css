@@ -1,8 +1,10 @@
 body{
-  background:#dfdfdf;
+  background:white;
+  font-family: optima;
 }
 .navbar{
   background: #ed2626;
+
 }
 #navbarTogglerDemo01 ul li a{
    color: white;
@@ -29,6 +31,11 @@ body{
 .fluid-container .card{
   width: 18rem;
   margin-left: 10%;
+
+}
+.fluid-container .card img{
+
+
 
 }
 .row{
