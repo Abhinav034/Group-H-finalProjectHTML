@@ -15,45 +15,45 @@
     <link rel="stylesheet" href="css/index.css">
   </head>
   <body >
-    <div class="jumbotron jumbotron-fluid" id="jumbotron">
+<nav class="navbar navbar-expand-lg navbar-dark ">
 
-      <img src="images/homeimg.jpg" alt="Header Image..." class="header-image">
+  <!-- button appears while sizing down -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- commented div for centre the contents in nav bar -->
+  <!-- <div class="d-md-flex d-block flex-row mx-md-auto mx-0"> -->
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+<!-- ml-auto = margin left -->
+    <ul class="navbar-nav ml-auto">
+
+      <!-- navigation bar items -->
+      <li class="nav-item" > <a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">About us</a></li>
+
+      <li class="nav-item"> <div class="dropdown">
+        <!-- service dropdown -->
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          services
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
+          <a class="dropdown-item" href="#" style="color: #404040";>Book Flights</a>
+          <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
+        </div>
+      </div></li>
+      <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">Contact us</a></li>
+
+    </ul>
+</div>
+</nav>
+<div class="jumbotron jumbotron-fluid" id="jumbotron">
+
+  <img src="images/homeimg.jpg" alt="Header Image..." class="header-image">
 
 </div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <!-- commented div for centre the contents in nav bar -->
-          <!-- <div class="d-md-flex d-block flex-row mx-md-auto mx-0"> -->
-
-          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <!-- ml-auto = margin left -->
-            <ul class="navbar-nav ml-auto">
-
-              <!-- navigation bar items -->
-              <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">About us</a></li>
-              <li class="nav-item" > <a class="nav-link" href="about.html">Home</a></li>
-              <li class="nav-item"> <div class="dropdown">
-                <!-- service dropdown -->
-                <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  services
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="hotels.html">Hotel Booking</a>
-                  <a class="dropdown-item" href="#">Book Flights</a>
-                  <a class="dropdown-item" href="#">Accomodation</a>
-                </div>
-              </div></li>
-              <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">Contact us</a></li>
-
-            </ul>
-    </div>
-
-
-        </nav>
         <div class="fluid-container">
 
           <div class="row" >
@@ -64,7 +64,7 @@
                 <div class="card-body">
                   <h5 class="card-title">Journey</h5>
                   <p class="card-text">From hotel bookings to flight tickets leave it all on us.</p>
-                  <a href="#" class="btn btn-outline-primary">Book hotels!</a>
+                  <a href="hotels.html" class="btn btn-outline-primary">Book hotels!</a>
                 </div>
               </div>
 

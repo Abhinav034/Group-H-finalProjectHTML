@@ -1,6 +1,19 @@
 body{
   background:#dfdfdf;
 }
+.navbar{
+  background: #ed2626;
+}
+#navbarTogglerDemo01 ul li a{
+   color: white;
+}
+#navbarTogglerDemo01 ul li a:hover{
+  color: #292b2c;
+}
+
+#dropdownMenuButton{
+  color: white;
+}
 #jumbotron{
   margin-bottom: 0%;
   padding: 0px;

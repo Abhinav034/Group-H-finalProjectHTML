@@ -1,0 +1,21 @@
+
+#jumbotron{
+  background-image: url(homeimg.jpg);
+  background-repeat: no-repeat;
+  color: white;
+  text-align: right;
+}
+#jumbotron h3{
+  padding-top: 2%;
+  padding-right: 2%;
+
+}
+#jumbotron h5{
+  padding-right: 2%;
+}
+label{
+  color: blue;
+}
+.card-section{
+  padding: 1% 8%;
+}
