@@ -16,6 +16,9 @@ body{
 #dropdownMenuButton{
   color: white;
 }
+#dropdownMenuButton:hover{
+  color: #292b2c;
+}
 #jumbotron{
   margin-bottom: 0%;
   padding: 0px;
@@ -31,11 +34,6 @@ body{
 .fluid-container .card{
   width: 18rem;
   margin-left: 10%;
-
-}
-.fluid-container .card img{
-
-
 
 }
 .row{

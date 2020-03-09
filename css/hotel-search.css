@@ -32,10 +32,13 @@ section ul{
 #hotel-results h5{
   color: grey;
 }
+
 #content-div{
   background-color: #dfdfdf;
-
-
+}
+#right-side{
+  padding-left: 10em;
+  color: red;
 }
 @media only screen and (max-width: 1000px){
   #image-div{
@@ -56,14 +59,18 @@ section img{
 @media only screen and (max-width: 600px){
   #image-div{
     padding-top: 1%;
-    text-align: center;
+    padding-right: 0;
+    
   }
   #content-div{
     margin-left: 5%;
   }
+  #right-side{
+    display: none;
+  }
 section img{
 
-  width: 300px;
+  width: 330px;
   height: 230px;
 }
 
