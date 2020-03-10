@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name= "viewport" content="width=device-width , initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body >
+    <div class="container-fluid">
+      <div class="top-bar">
+        <div class="row">
+          <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">Sign In</li>
+            <li class="list-group-item">My List</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <nav class="navbar navbar-expand-lg navbar-dark ">
+
+        <!-- button appears while sizing down -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#secondNavbar" aria-controls="secondNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="secondNavbar">
+      <!-- ml-auto = margin left  ml-auto -->
+          <ul class="navbar-nav">
+
+          <!-- navigation bar items -->
+            <li class="nav-item" > <a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">About us</a></li>
+
+            <li class="nav-item"> <div class="dropdown">
+              <!-- service dropdown -->
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Services
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
+                <a class="dropdown-item" href="#" style="color: #404040";>Book Flights</a>
+                <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
+              </div>
+            </div></li>
+            <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">Contact us</a></li>
+
+          </ul>
+        </div>
+      </nav>
+
+        <!-- login -->
+        <form class="was-validated login-form" action="#" method="post">
+
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
+            <div class="valid-feedback">Valid.</div>
+            <div class="invalid-feedback">Please fill out this field.</div>
+          </div>
+
+          <div >
+            <h5>Don't have an account?</h5>
+            <button class="btn-create-account" name="button" onclick="showSignUp()">Create Account</button>
+
+          </div>
+          <div class="form-button">
+            <button class="btn-login" type="submit" class="btn btn-primary" >Log In</button>
+          </div>
+
+        </form>
+
+
+      <!-- registration -->
+      <form class="was-validated registration-form" action="index.html" method="post">
+        <div class="form-group">
+          <label for="fullName">Fullname:</label>
+          <input type="text" class="form-control" name="name" id="fName" placeholder="Enter your full name" required>
+          <div class="valid-feedback">Valid data.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" class="form-control" name="email" id="email" placeholder="Enter your email address" required>
+          <div class="valid-feedback">Valid data.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+
+        </div>
+        <div class="form-group">
+          <label for="uname">Username:</label>
+          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+          <div class="valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class="form-button">
+          <button type="submit" class="btn-register">Register</button>
+        </div>
+
+      </form>
+
+
+
+
+      </div>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/3d7be19efc.js"></script>
+        <script src="scripts/script.js"></script>
+  </body>
+</html>
