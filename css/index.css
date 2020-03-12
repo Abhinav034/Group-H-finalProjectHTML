@@ -1,6 +1,7 @@
 body{
   background:white;
   font-family: optima;
+<<<<<<< HEAD
 }
 .container-fluid{
   padding: 0px;
@@ -17,6 +18,11 @@ body{
 .navbar{
   background: #ed2626;
   clear: both;
+=======
+}
+.navbar{
+  background: #ed2626;
+>>>>>>> 783155e5e11970aae4e2428ffa321bf2ca254053
 
 }
 #secondNavbar ul li a{
@@ -29,10 +35,16 @@ body{
 #dropdownMenuButton{
   color: white;
 }
+<<<<<<< HEAD
 .slider.row {
     margin: 0;
 }
 
+=======
+#dropdownMenuButton:hover{
+  color: #292b2c;
+}
+>>>>>>> 783155e5e11970aae4e2428ffa321bf2ca254053
 #jumbotron{
   margin-bottom: 0%;
   padding: 0px;

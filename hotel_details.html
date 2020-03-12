@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name= "viewport" content="width=device-width , initial-scale=1.0">
+    <title>Hotel-Details</title>
+    <script src="https://use.fontawesome.com/3d7be19efc.js"></script>
+
+    <!-- bootstrap cdn and javascript code -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/hotel-details.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+
+      <!-- button appears while sizing down -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- commented div for centre the contents in nav bar -->
+      <!-- <div class="d-md-flex d-block flex-row mx-md-auto mx-0"> -->
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <!-- ml-auto = margin left -->
+        <ul class="navbar-nav ml-auto">
+
+          <!-- navigation bar items -->
+          <li class="nav-item" > <a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">About us</a></li>
+
+          <li class="nav-item"> <div class="dropdown">
+            <!-- service dropdown -->
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Services
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
+              <a class="dropdown-item" href="#" style="color: #404040";>Book Flights</a>
+              <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
+            </div>
+          </div></li>
+          <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">Contact us</a></li>
+
+        </ul>
+    </div>
+    </nav>
+
+    <section>
+
+      <div class="jumbotron jumbotron-fluid" id="jumbotron">
+
+        <h1 id="hotel-title">Chelsea Hotel Toronto</h1>
+            <span style="font-size:1.2em;">Ratings:</span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+
+          <h4 style="margin-top:1%;">Overview</h4>
+        </div>
+        <div class="row">
+          <div class="col-lg-7" id="crousel-div">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/crousel.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images/crousel.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="images/crousel.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+          </div>
+          <div class="col-lg-5" style="background:#dfdfdf;">
+              <table class="details-table">
+                <tr>
+                  <td id="left-side">
+                    <li>Luxury Room</li>
+                    <li>Wi-fi</li>
+                    <li>Pet-friendly</li>
+                    <li>250 sq ft</li>
+                  </td>
+                  <td id="right-side">
+                    <h4 style="color:#FF291E;">CA $249</h4>
+                    <h6 style="color:#291EFF;">per night</h6>
+                    <h6 style="color:#291EFF;">Including taxes</h6>
+                    <h6 style="color:#291EFF;">Refundable</h6>
+
+
+                  </td>
+
+                </tr>
+              </table>
+
+              <div class="btn-reserve">
+                <button type="button" class="btn btn-outline-info btn-lg">Reserve Now !</button>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12" style="background:#f0f0f0; padding:0;">
+              <div class="row">
+              <div class="col-lg-4">
+                <h3>About this area</h3>
+                <p style="margin-top:1.3em;">Located in Toronto, Chelsea Hotel is in the city centre and on the waterfront.
+                  The area's natural beauty can be seen at High Park and Yonge-Dundas Square, while Ripley's Aquarium of Canada and Ontario
+                  Place are popular area attractions.</p>
+              </div>
+              <div class="col-lg-8" id="about-property">
+                  <h3>About this property</h3>
+                  <p>
+                    Along with 2 restaurants, this smoke-free hotel has a full-service spa and an outdoor pool. Free WiFi in public areas, a free airport shuttle and free train station pick-up are also provided.
+                    Other amenities include 4 bars/lounges, a 24-hour health club and a poolside bar.
+                  </p>
+              </div>
+
+            </div>
+        </div>
+      </div>
+
+        <div class="row" style="background:#f0f0f0;">
+          <div class="col-lg-4" style="margin-top:1.5em; padding-left:2em;">
+            <h3>Policies</h3>
+
+              <li>Check-in available in 24 hrs.</li>
+              <li>Check-out before noon.</li>
+              <li>Minimum Check-in age is 18.</li>
+              <li>Kids stay free!</li>
+              <li>Extra beds not available.</li>
+
+          </div>
+          <div class="col-lg-4" style="margin-top:1.5em; padding-left:2em;">
+            <h3>Payment types</h3>
+
+              <li>Visa.</li>
+              <li>Master Card.</li>
+              <li>American Express.</li>
+              <li>PayPal</li>
+
+
+          </div>
+          <div class="col-lg-4" style="margin-top:1.5em; padding-left:2em;">
+            <h3>Extras</h3>
+
+              <li>Breakfast fee: CAD $10.</li>
+              <li>Parking fee: CAD $35.</li>
+              <li>Valet Parking: CAD $100.</li>
+              <li>Pet fee: CAD $100.</li>
+
+
+          </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+  </body>
+  <div class="row" style="margin:0;">
+
+    <div class="col-lg-12" id="footer">
+
+        <div class="footer" style="text-align:center; padding-top:15px;">
+          &copy; Copyright 2020. All Rights Reserved.
+        </div>
+
+
+    </div>
+    </div>
+</html>
