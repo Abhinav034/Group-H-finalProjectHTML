@@ -32,12 +32,6 @@ section ul{
 #hotel-results h5{
   color: grey;
 }
-<<<<<<< HEAD
-#content-div{
-  background-color: #dfdfdf;
-
-
-=======
 
 #content-div{
   background-color: #dfdfdf;
@@ -45,7 +39,6 @@ section ul{
 #right-side{
   padding-left: 10em;
   color: red;
->>>>>>> 783155e5e11970aae4e2428ffa321bf2ca254053
 }
 @media only screen and (max-width: 1000px){
   #image-div{
@@ -66,28 +59,18 @@ section img{
 @media only screen and (max-width: 600px){
   #image-div{
     padding-top: 1%;
-<<<<<<< HEAD
-    text-align: center;
-=======
     padding-right: 0;
-    
->>>>>>> 783155e5e11970aae4e2428ffa321bf2ca254053
+
   }
   #content-div{
     margin-left: 5%;
   }
-<<<<<<< HEAD
-section img{
-
-  width: 300px;
-=======
   #right-side{
     display: none;
   }
 section img{
 
   width: 330px;
->>>>>>> 783155e5e11970aae4e2428ffa321bf2ca254053
   height: 230px;
 }
 

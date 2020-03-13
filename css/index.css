@@ -1,50 +1,24 @@
 body{
   background:white;
   font-family: optima;
-<<<<<<< HEAD
-}
-.container-fluid{
-  padding: 0px;
-}
-.top-bar .row {
-    margin: 0;
-    float: right;
-}
-.top-bar .list-group-item {
-    border: none;
-    padding: 0.2rem 1.25rem;
-    font-size: 15px;
 }
 .navbar{
   background: #ed2626;
-  clear: both;
-=======
-}
-.navbar{
-  background: #ed2626;
->>>>>>> 783155e5e11970aae4e2428ffa321bf2ca254053
 
 }
-#secondNavbar ul li a{
+#navbarTogglerDemo01 ul li a{
    color: white;
 }
-#secondNavbar ul li a:hover{
+#navbarTogglerDemo01 ul li a:hover{
   color: #292b2c;
 }
 
 #dropdownMenuButton{
   color: white;
 }
-<<<<<<< HEAD
-.slider.row {
-    margin: 0;
-}
-
-=======
 #dropdownMenuButton:hover{
   color: #292b2c;
 }
->>>>>>> 783155e5e11970aae4e2428ffa321bf2ca254053
 #jumbotron{
   margin-bottom: 0%;
   padding: 0px;
@@ -62,50 +36,10 @@ body{
   margin-left: 10%;
 
 }
-.fluid-container .card img{
-
-
-
-}
 .row{
   margin-top:5%;
 }
 #footer{
   background:grey;
   height:3em;
-}
-
-
-
-
-/* registration/ sign in page */
-form.was-validated {
-    width: 30%;
-    margin: 2% 5%;
-}
-form.was-validated label {
-    font-weight: 600;
-    font-size: larger;
-}
-.btn-create-account {
-    background-color: transparent;
-    border: 2px solid #ed2626;
-    color: #ed2626;
-    padding: 5px 10px;
-    border-radius: 10px;
-}
-.form-button {
-    text-align: center;
-}
-.form-button button {
-    width: 45%;
-    margin: 30px 0px;
-    padding: 5px;
-    background: #ed2626;
-    border-radius: 10px;
-    color: #ffffff;
-    font-size: 18px;
-}
-.registration-form{
-  display: none;
 }
