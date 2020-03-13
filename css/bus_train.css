@@ -1,0 +1,23 @@
+#where_to{
+  background-image: url(where_to_img.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+#where_to h1{
+  text-align: center;
+font-size: 3em;
+color: white;
+padding-top: 1%;
+padding-left: 2%;
+}
+#card_view{
+  margin: 1% 25%;
+
+}
+#card_view .card{
+  background-color: #000033;
+  color: white;
+
+
+}
