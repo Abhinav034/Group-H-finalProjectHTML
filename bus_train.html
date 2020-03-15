@@ -38,6 +38,7 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
               <a class="dropdown-item" href="flights.html" style="color: #404040";>Book Flights</a>
+                <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
               <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
             </div>
           </div></li>
@@ -63,17 +64,17 @@
 </div>
   <div class="card-body">
     <h5 class="card-title"></h5>
-    <form action="/action_page.php">
+    <!-- <form action="#"> -->
       <label for="from">From:</label>
       <input type="text" id="source" name="check-in">
       <label for="to">To:</label>
       <input type="text" id="destination" name="check-in">
       <label for="depart">Date:</label>
-      <input type="date" id="deapart" name="check-out">
+      <input type="date" id="depart" name="check-out">
       <label for="return">Return:</label>
       <input type="date" id="return" name="check-out">
-      <input type="submit"  class="btn btn-success btn-md" value="Search" style="margin-top:10px;">
-    </form>
+      <input type="submit" onclick="getData()"  class="btn btn-success btn-md" value="Search" style="margin-top:10px;">
+    <!-- </form> -->
 
       </div>
         </div>
@@ -81,11 +82,104 @@
             </div>
           </div>
 
-          <div class="row" style="text-align:center;">
-            <div class="col-lg-4" style="background:red;">
-              <h1 >hkbwjkjjk</h1>
+          <div class="row">
+            <div class="col-lg-12" style="padding-top:2%;">
+              <h1 style="text-align:center;">Popular destinations</h1>
             </div>
           </div>
+          <div class="row" style="margin:1% 2%;">
+            <div class="row row-cols-1 row-cols-md-2">
+  <div class="col mb-4">
+    <div class="card">
+    <a href="#"><img src="images/nyc.jpg" class="card-img-top" alt="..."></a>
+      <div class="card-body">
+        <h5 class="card-title">New York City</h5>
+        <p class="card-text">Take a trip to the famous New York City, one of the most popular tourist attraction all over the world, with hundered's and thousand's
+        of attractions you will never run out of things to try in New York.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <a href="#"><img src="images/toronto.jpg" class="card-img-top" alt="..."></a>
+      <div class="card-body">
+        <h5 class="card-title">Toronto</h5>
+        <p class="card-text">With exciting entertainment, live performance, major league sports, festival for nearly everything and famous attractions like - CN-tower, Casa Loma and many more,
+          there's always something new to try in Toronto.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <a href="#"><img src="images/niagara.jpg" class="card-img-top" alt="..."></a>
+      <div class="card-body">
+        <h5 class="card-title">Niagara Falls</h5>
+        <p class="card-text">Niagara Falls, Ontario, is a Canadian city at the famous waterfalls of the same name, linked with the U.S. by the Rainbow Bridge. Its site on the Niagara River's western
+          shore overlooks the Horseshoe Falls, the cascades' most expansive section.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <a href="#"><img src="images/ottawa.jpg" class="card-img-top" alt="..."></a>
+      <div class="card-body">
+        <h5 class="card-title">Ottawa</h5>
+        <p class="card-text">Ottawa, Canada’s capital, a dynamic showcase city of more than one million people. It's a place where you’ll hear English and French spoken in the streets, where you can
+          discover Canada’s proud heritage at impressive national sites and famous landmarks.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+      <a href="#"><img src="images/chicago.png" class="card-img-top" alt="..."></a>
+      <div class="card-body">
+        <h5 class="card-title">Chicago</h5>
+        <p class="card-text">Chicago, on Lake Michigan in Illinois, is among the largest cities in the U.S. Famed for its bold architecture, it has a skyline punctuated by skyscrapers such as the iconic John Hancock Center,
+          1,451-ft. Willis Tower (formerly the Sears Tower) and the neo-Gothic Tribune Tower. The city is also renowned for its museums.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col mb-4">
+    <div class="card">
+    <a href="#"><img src="images/la.jpg" class="card-img-top" alt="..."></a>
+      <div class="card-body">
+        <h5 class="card-title">Los Angeles</h5>
+        <p class="card-text">Take a road-trip to the city of Los Angeles, also famously known as city of stars.Near its iconic Hollywood sign, studios such as Paramount Pictures, Universal and Warner Brothers offer behind-the-scenes tours.
+        On Hollywood Boulevard, TCL Chinese Theatre displays celebrities’ hand- and footprints, the Walk of Fame honors thousands of luminaries and vendors sell maps to stars’ homes. </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <div class="row" style="margin-top:0;">
+    <div class="col-lg-12" id="footer">
+      <div class="footer" style="text-align:center; padding-top:15px;">
+          &copy; Copyright 2020. All Rights Reserved.
+      </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+  function getData(){
+
+    var source = document.getElementById("source").value;
+    var destination = document.getElementById("destination").value;
+    var departingDate = document.getElementById("depart").value;
+    var returnDate = document.getElementById("return").value;
+
+
+
+
+
+
+
+  }
+
+
+
+</script>
 
 
 
