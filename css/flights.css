@@ -1,0 +1,64 @@
+.flights-container{
+  position: relative;
+}
+.banner {
+    width: 100%;
+    height: 600px;
+}
+.flights-container .banner img{
+  width: 100%;
+  height: 100%;
+}
+.flights-form {
+  position: absolute;
+  width: 33%;
+  left: 5%;
+  top: 9%;
+  margin: 10px;
+  border: 2px solid #595978;
+  background: #bfb1b147;
+}
+.flight-options {
+    border-bottom: 1px solid #f3ecec;
+    margin: 10px;
+}
+.flights-form .form{
+  padding: 15px;
+}
+.flight-options button {
+    background: none;
+    width: 49.48%;
+    border: none;
+    padding: 5px;
+    font-weight: bold;
+    color: #d33e20;
+}
+.dates .form-group {
+    display: inline-block;
+    width: 47%;
+    margin: 1%;
+}
+.choose-Passengers{
+  display: none;
+}
+.adults, .children {
+    padding: 5px 10px;
+}
+.adults p, .children p {
+    display: inline-block;
+}
+.inc-dec {
+    display: inline-block;
+    float: right;
+}
+#btn-flight {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    color: white;
+    background-color: #d33f21;
+}
+.flights-container label {
+    font-weight: bold;
+    font-size: 18px;
+}
