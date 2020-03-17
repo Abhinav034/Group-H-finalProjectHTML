@@ -55,44 +55,45 @@
                 <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
               </div>
             </div></li>
-            <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">Contact us</a></li>
+            <li class="nav-item"> <a class="nav-link" href="contactUs.html">Contact us</a></li>
 
           </ul>
         </div>
       </nav>
 <h2>Package Bookings</h2>
-<section>
-<br><br>
-<img src="images/packageImage.jpg" alt="contactUs Image"/>
-
-</section>
-<br><br>
 
 <!-- package selection -->
-<label for="countries">Choose a country:</label>
+<section class="package">
+  &nbsp;&nbsp;
+<label for="countries">Country Preference:</label>
 <select id="countries">
-  <!-- <option value="Singapore">Singapore</option>
-  <option value="Dubai">Dubai</option>
-  <option value="Thailand">Thailand</option>
-  <option value="Paris">Paris</option> -->
+
 </select>
 
 <!-- days -->
-<label for="days">Select Travel period:</label>
+&nbsp;&nbsp;
+<label for="days">Travel period:</label>
+&nbsp;
 <select id="days">
   <option value="5 Days">5 Days</option>
   <option value="10 Days">10 Days</option>
+
 </select>
-
-<input type="text" id="date"/>
-
-<button type="button" name="button" onclick="getDescription()">Get Package details</button><br>
-
+&nbsp;Date: <input type="date" id="date">
+<button type="button" name="button" onclick="getDescription()">Get Package details</button>
+&nbsp;<button type="button" name="button" onclick="BookPackage()">Confirm Booking</button>
 <p id="op"></p>
 
 
-<br><br>
-<button type="button" name="button" onclick="BookPackage()">Book</button>
+
+
+</section>
+
+<section>
+
+<img src="images/package_booking.jpg" alt="Package booking Image"/>
+
+</section>
 
 <!-- footer below -->
 
@@ -161,16 +162,18 @@ function getDescription(){
 
           p = request.result;
           console.log(p);
-          var desc;
+          var desc = "Amazing Trip to Unlish the traveller inside you ! <br>"
 
           var duration = document.getElementById('days').value;
 
           if (duration == "5 Days"){
 
-            desc = p.five_days.description;
+            desc += p.five_days.description + "<br>" +
+              "price: "+p.five_days.price;
 
           }else{
-            desc = p.ten_days.description;
+            desc += p.ten_days.description + "<br>" +
+              "price: "+p.ten_days.price;
           }
 
           document.getElementById("op").innerHTML = "Package Description : " + desc;
@@ -199,6 +202,13 @@ function BookPackage(){
       var travel_date = document.getElementById('date').value;
       var no_of_days = document.getElementById('days').value;
 
+      var price;
+
+      if (no_of_days == "5 Days"){
+        price = "CAD $ 2500";
+      }else{
+        price = "CAD $ 5000";
+      }
 
       var objectData = {
 
@@ -206,7 +216,7 @@ function BookPackage(){
           Details : country_name,
           person : 2,
           Duration : (travel_date + " : " + no_of_days),
-          Price : "CAD $ 5800",
+          Price : price,
           Service_Booking_Date : new Date()
 
       };

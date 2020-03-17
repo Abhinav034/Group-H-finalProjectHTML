@@ -62,13 +62,16 @@ h1{
   margin: 10px;
   margin-right: 10px;
   text-align: center;
-  background-color: #c3e67a;
-  color: #0000ff;
+  border-style: double;
+  border-color: #000000;
+  color: #8a3d40;
   clear: both;
   padding: 10px;
   min-width: 430px;
   padding-right: 20px;
   border-radius: 20px 20px 20px 20px;
+  font-family: "Lucida Console";
+
 }
 
 section{
@@ -76,15 +79,20 @@ section{
   margin: auto;
 
 }
+
+
 p{
-  color: #0000ff;
+
   margin: 10px;
   margin-top: 15px;
+
   margin-left: 20px;
+
 }
 
-ol, ul{
+ul{
 
-  color: #c92276;
+
+  list-style-type: square;
 
 }

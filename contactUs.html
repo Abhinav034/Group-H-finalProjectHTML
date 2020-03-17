@@ -12,8 +12,9 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/contactus.css">
+
 
 
 
@@ -63,80 +64,47 @@
         </div>
       </nav>
 
-
 <section>
-<h1>About Us</h1>
-<img class="aboutUs_img" src="images/aboutus1.png" alt="image_not_found">
-  <p><b>
-    With decades of experience in the travel industry,
-    We have the right skills, resources and tools to explore idea in variety
-     of aspects for Travel bookings, customized packages to enhance our
-      clients travel experience, all while providing the best deals to our
-      customer.</b> </p>
-
-<p>
-Initiated with an aim to provide high-quality services to the customers,
-we are committed and dedicated to serving our prestigious clients globally.
-Due to our dedication to delivering amazing solutions which are powerful and
- scalable, we have witnessed amazing feedback in the past few years.</p>
-
+<br><br>
+<img src="images/ContactUSImage.jpg" alt="contactUs Image"/>
 
 </section>
 
 
-<section>
-<h1>What we do ?</h1>
-<img class="aboutUs_img" src="images/aboutus2.png" alt="image_not_found">
-  <p><b>
-    We are one stop solutions that provides consultation and
-    solutions According to your travel needs. We have astounding experience and
-    expertise in the field throughout the world.</b></p>
-
-
-
-<p>We Offer following services.
-    <ul><i>
-      <li> Hotel Bookings</li>
-      <li> Flight Bookings</li>
-      <li> Bus / Train Bookings</li>
-      <li> Travel packages Bookings</li>
-      <li> Customer Service</li>
-    </i></ul>
-
-</p>
-
-
-</section>
 
 <section>
-<h1>Why to choose Us ?</h1>
-<img class="aboutUs_img" src="images/aboutus3.jpg" alt="image_not_found">
-  <p><b>
-    There are many reasons to prefer us over other travel sites.
-  Have a glance at few of them.</b></p>
+  <br><br>
+  <h2>Please write your queries to us. We are happy to help 😊</h2>
 
-  <p>
-      <ol><i>
-        <li> 24x7 Customer service</li>
-        <li> Free Booking consultation </li>
-        <li> Easy and quick payment/refund process</li>
-        <li> Amazing customer experience</li>
-        <li> Best deal gaurenty</li>
-    </i></ol>
+  <form>
+    <label for="email">E-mail:</label><br>
+    <input type="text" id="email" name="email"></input><br><br>
+    <textarea id="query" rows="5" cols="50"></textarea>
+    <button onclick="submitFunc()">Submit</button>
+  </form>
 
-  </p>
-
-
+<a href="mailto:parthdalwadi75@gmail.com"><img id="icon" src="images/mailIcon.png" alt="email us"/></a>
 </section>
 
-        <div class="row" style="margin-top:0;">
-          <div class="col-lg-12" id="footer">
-              <div class="footer" style="text-align:center; padding-top:15px;">
-                &copy; Copyright 2020. All Rights Reserved.
-              </div>
-          </div>
-        </div>
-        <script type="text/javascript" src="scripts/dbScript.js"></script>
+<br><br>
+<div class="row" style="margin-top:0;">
+  <div class="col-lg-12" id="footer">
+    <div class="footer" style="text-align:center; padding-top:15px;">
+      &copy; Copyright 2020. All Rights Reserved.
+    </div>
+
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  function submitFunc(){
+    alert("Your message is received !! Thank you for contacting us. We will get back to you soon !!")
+  }
+</script>
+
+
 
   </body>
 </html>
