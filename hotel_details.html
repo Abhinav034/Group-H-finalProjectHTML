@@ -19,9 +19,9 @@
       <div class="top-bar">
         <div class="row">
           <ul class="list-group list-group-horizontal">
-            <li class="list-group-item"><a href="registration.html">Sign In</a></li>
+            <li id="signin" class="list-group-item"><a href="registration.html">Sign In</a></li>
             <li id="mylist" class="list-group-item"><a href="myList.html">My List</a></li>
-            <li id="signout" class="list-group-item"><a href="myList.html">Sign Out</a></li>
+            <li id="signout" class="list-group-item"><a href="myList.html" onclick="signOut()">Sign Out</a></li>
 
           </ul>
         </div>
@@ -193,18 +193,18 @@
 
     </section>
 
+    <div class="row" style="margin:0;">
 
+      <div class="col-lg-12" id="footer">
+
+          <div class="footer" style="text-align:center; padding-top:15px;">
+            &copy; Copyright 2020. All Rights Reserved.
+          </div>
+      </div>
+      </div>
+
+    <script type="text/javascript" src="scripts/dbScript.js"></script>
 
   </body>
-  <div class="row" style="margin:0;">
 
-    <div class="col-lg-12" id="footer">
-
-        <div class="footer" style="text-align:center; padding-top:15px;">
-          &copy; Copyright 2020. All Rights Reserved.
-        </div>
-
-
-    </div>
-    </div>
 </html>
