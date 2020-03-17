@@ -44,6 +44,7 @@
                 <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
                 <a class="dropdown-item" href="#" style="color: #404040";>Book Flights</a>
                 <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
+                <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
                 <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
               </div>
             </div></li>
@@ -53,71 +54,79 @@
         </div>
       </nav>
 
-        <!-- login -->
-        <form class="was-validated login-form" action="#" method="post">
+      <!-- login -->
+      <form class="was-validated login-form" >
 
-          <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
-            <div class="valid-feedback">Valid.</div>
-            <div class="invalid-feedback">Please fill out this field.</div>
-          </div>
-
-          <div >
-            <h5>Don't have an account?</h5>
-            <button class="btn-create-account" name="button" onclick="showSignUp()">Create Account</button>
-
-          </div>
-          <div class="form-button">
-            <button class="btn-login" type="submit" class="btn btn-primary" >Log In</button>
-          </div>
-
-        </form>
-
-
-      <!-- registration -->
-      <form class="was-validated registration-form" action="index.html" method="post">
         <div class="form-group">
-          <label for="fullName">Fullname:</label>
-          <input type="text" class="form-control" name="name" id="fName" placeholder="Enter your full name" required>
-          <div class="valid-feedback">Valid data.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
-
-        </div>
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="text" class="form-control" name="email" id="email" placeholder="Enter your email address" required>
-          <div class="valid-feedback">Valid data.</div>
-          <div class="invalid-feedback">Please fill out this field.</div>
-
-        </div>
-        <div class="form-group">
-          <label for="uname">Username:</label>
-          <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+          <label for="username">Username:</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
         <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
+
         <div class="form-button">
-          <button type="submit" class="btn-register">Register</button>
+          <button class="btn-login" type="submit" class="btn btn-primary" onclick="logIn()" >Log In</button>
         </div>
 
       </form>
 
 
+
+
+    <!-- registration -->
+    <form class="was-validated registration-form" >
+      <div class="form-group">
+        <label for="fullName">Fullname:</label>
+        <input type="text" class="form-control" name="name" id="fName" placeholder="Enter your full name" required>
+        <div class="valid-feedback">Valid data.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Enter your email address" required>
+        <div class="valid-feedback">Valid data.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+
+      </div>
+      <div class="form-group">
+        <label for="uname">Username:</label>
+        <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+        <div class="valid-feedback">Valid.</div>
+        <div class="invalid-feedback">Please fill out this field.</div>
       </div>
 
+
+    </form>
+
+</div>
+
+
+
+
+
+          <div class="was-validated registration-form form-button">
+          <button class="btn-register" onclick="addUser()">Register</button>
+        </div>
+      <!-- parth code -->
+      <div class="was-validated login-form">
+        <h5>Don't have an account?</h5>
+        <button class="btn-create-account" name="button" onclick="showSignUp()">Create Account</button>
+
+      </div>
+      <!-- parth code  end -->
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -125,5 +134,102 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="https://use.fontawesome.com/3d7be19efc.js"></script>
         <script src="scripts/script.js"></script>
+        <script>
+
+        function logIn(){
+
+          let openRequest = indexedDB.open("project", 1);
+          var db;
+
+          var un = document.getElementById("username").value;
+          var pw = document.getElementById("password").value;
+
+
+          openRequest.onsuccess = function() { console.log("success");
+
+              db = openRequest.result;
+              db.onversionchange = function() { db.close(); };
+
+              var transaction = db.transaction("allUsersData", "readwrite");
+              var all = transaction.objectStore("allUsersData");
+
+              var req = all.get(un);
+              req.onsuccess = function() {
+
+                var user_data = req.result;
+
+                if (user_data.password == pw){
+
+                      alert("login successfull")
+                      let transaction2 = db.transaction("LogInUser", "readwrite");
+                      let logInUser = transaction2.objectStore("LogInUser");
+                      alert(un + " is logged in.")
+                      logInUser.put({k: "UN", v: un});
+                      alert("u will be redirected");
+                      window.location.href = "index.html";
+
+                }else{
+                  alert("Wrong username / password !! Try again !!")
+                }
+            };
+
+
+            }// success
+
+
+
+        }
+
+
+        function addUser(){
+
+
+
+          let openRequest = indexedDB.open("project", 1);
+          var db;
+
+
+          openRequest.onblocked = function() {};
+
+          openRequest.onsuccess = function() {
+
+              db = openRequest.result;
+
+              db.onversionchange = function() { db.close(); };
+
+              var transaction = db.transaction("allUsersData", "readwrite");
+              var all = transaction.objectStore("allUsersData");
+
+              var un = document.getElementById('uname').value;
+
+              var pw = document.getElementById('pwd').value;
+
+              var name = document.getElementById('fName').value;
+              var mail = document.getElementById('email').value;
+
+
+              var objectData = {
+                username: un,
+                password: pw,
+                fullName: name,
+                email: mail,
+                requestsList: []
+              };
+
+              var request = all.add(objectData);
+              console.log(request);
+
+              request.onsuccess = function() {
+
+                alert("User successfully Registered");
+                window.location.href = "registration.html";
+
+              };
+
+            }// end of success
+
+
+          }// end of function
+        </script>
   </body>
 </html>

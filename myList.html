@@ -12,9 +12,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/about.css">
-
-
+    <link rel="stylesheet" href="css/contactUs.css">
 
   </head>
   <body >
@@ -34,7 +32,7 @@
 
       <!-- navigation bar items -->
       <li class="nav-item" > <a class="nav-link" href="index.html">Home</a></li>
-      <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">About us</a></li>
+      <li class="nav-item"> <a class="nav-link" href="aboutUs.html">About us</a></li>
 
       <li class="nav-item"> <div class="dropdown">
         <!-- service dropdown -->
@@ -43,102 +41,88 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
-          <a class="dropdown-item" href="#" style="color: #404040";>Book Flights</a>
+          <a class="dropdown-item" href="flights.html" style="color: #404040";>Book Flights</a>
           <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
           <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
           <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
         </div>
       </div></li>
-      <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">Contact us</a></li>
+      <li class="nav-item"> <a class="nav-link" href="contactUs.html">Contact us</a></li>
 
     </ul>
 </div>
 </nav>
-
+<h2>My Requests List</h2>
 
 <section>
-<h1>About Us</h1>
-<img class="aboutUs_img" src="images/toronto.jpg" alt="image_not_found">
-  <p>
-    With decades of experience in the travel industry,
-    We have the right skills, resources and tools to explore idea in variety
-     of aspects for Travel bookings, customized packages to enhance our
-      clients travel experience, all while providing the best deals to our
-      customer. </p>
 
-<p>
-Initiated with an aim to provide high-quality services to the customers,
-we are committed and dedicated to serving our prestigious clients globally.
-Due to our dedication to delivering amazing solutions which are powerful and
- scalable, we have witnessed amazing feedback in the past few years.</p>
-
+<ul id="list"></ul>
 
 </section>
 
+<br><br>
+<div class="row" style="margin-top:0;">
+  <div class="col-lg-12" id="footer">
+    <div class="footer" style="text-align:center; padding-top:15px;">
+      &copy; Copyright 2020. All Rights Reserved.
+    </div>
 
-<section>
-<h1>What we do ?</h1>
-<img class="aboutUs_img" src="images/toronto.jpg" alt="image_not_found">
-  <p>
-    We are one stop solutions that provides consultation and
-    solutions According to your travel needs. We have astounding experience and
-    expertise in the field throughout the world.</p>
+  </div>
+</div>
+<!-- script -->
 
+<script>
 
+  var list = document.getElementById("list");
+    let openRequest = indexedDB.open("project", 1);
+    var db;
+    openRequest.onsuccess = function() {
 
-<p>We Offer following services.
-    <ul>
-      <li> Hotel Bookings</li>
-      <li> Flight Bookings</li>
-      <li> Bus / Train Bookings</li>
-      <li> Travel packages Bookings</li>
-      <li> Customer Service</li>
-    </ul>
+        db = openRequest.result;
+        db.onversionchange = function() { db.close(); };
 
-</p>
+        let transaction2 = db.transaction("LogInUser", "readwrite");
+        let logInUser = transaction2.objectStore("LogInUser");
 
-
-</section>
-
-<section>
-<h1>Why to choose Us ?</h1>
-<img class="aboutUs_img" src="images/toronto.jpg" alt="image_not_found">
-  <p>
-    There are many reasons to prefer us over other travel sites.
-  Have a glance at few of them.</p>
-
-  <p>
-      <ol>
-        <li> 24x7 Customer service</li>
-        <li> Free Booking consultation </li>
-        <li> Easy and quick payment/refund process</li>
-        <li> Amazing customer experience</li>
-        <li> Bast deal gaurenty</li>
-      </ol>
-
-  </p>
+        var r = logInUser.get("UN");
+        r.onsuccess = function() {
 
 
-</section>
+          var unObject = r.result;
+          console.log(unObject);
+          var currentUser = unObject.v;
 
-        <div class="row" style="margin-top:0;">
+          let transaction = db.transaction("allUsersData", "readwrite");
+          let allRequests = transaction.objectStore("allUsersData");
+          var req = allRequests.get(currentUser);
 
-          <div class="col-lg-12" id="footer">
-
-              <div class="footer" style="text-align:center; padding-top:15px;">
-                &copy; Copyright 2020. All Rights Reserved.
-              </div>
-
-
-          </div>
+                req.onsuccess = function() {
 
 
-        </div>
+                var userObject = req.result;
 
+                var reqArray = userObject.requestsList;
+                console.log(reqArray);
+
+
+            //li.setAttribute("id", "myTr");
+
+            for(let i=0;  i<reqArray.length; i++){
+
+              var li = document.createElement("li");
+              li.innerHTML= reqArray[i].label;
+                list.appendChild(li);
+            }
+
+
+         };
+      };
+};
 
 
 
 
+</script>
 
   </body>
 </html>

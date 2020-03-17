@@ -7,6 +7,87 @@
     <!-- bootstrap cdn and javascript code -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
+
+    <!-- script to initialise database -->
+    <script type="text/javascript">
+
+
+    let openRequest = indexedDB.open("project", 1);
+    openRequest.onupgradeneeded = function() {
+
+      let db = openRequest.result;
+      if (!db.objectStoreNames.contains('package')) {
+        db.createObjectStore('package', {keyPath: "country"});
+      }
+
+      if (!db.objectStoreNames.contains('allUsersData')) {
+        db.createObjectStore('allUsersData', {keyPath: "username"});
+      }
+
+
+      if (!db.objectStoreNames.contains('LogInUser')) {
+        db.createObjectStore('LogInUser', {keyPath: "k"});
+      }
+
+
+      
+
+    };
+
+
+    openRequest.onsuccess = function(){
+
+        db = openRequest.result;
+        db.onversionchange = function() { db.close(); };
+
+        let transaction = db.transaction("package", "readwrite");
+        let package_table = transaction.objectStore("package");
+
+        let transaction2 = db.transaction("LogInUser", "readwrite");
+        let logInUser = transaction2.objectStore("LogInUser");
+
+        logInUser.add({k: "UN", v: ""});
+
+        let india = {
+        country: 'India',
+        five_days: {price: "$2500", days: "5" , description: "Short trip to India" },
+        ten_days: {price: "$5000", days: "10" , description: "Long trip to India"}
+
+      }; // end of data
+
+
+      let dubai = {
+      country: 'Dubai',
+      five_days: {price: "$2500", days: "5" , description: "Short trip to Dubai" },
+      ten_days: {price: "$5000", days: "10" , description: "Long trip to Dubai"}
+
+    };
+
+    let paris = {
+    country: 'Paris',
+    five_days: {price: "$2500", days: "5" , description: "Short trip to Paris" },
+    ten_days: {price: "$5000", days: "10" , description: "Long trip to Paris"}
+    };
+
+
+
+
+    var dataToStore = [india, dubai, paris];
+
+
+    for(let i = 0 ; i < dataToStore.length ; i++){
+
+      var request = package_table.add(dataToStore[i]);
+
+      request.onsuccess = function() { console.log("db initialised"); };
+
+    }
+
+    };
+
+
+    </script>
+
   </head>
   <body >
     <div class="container-fluid">
@@ -14,7 +95,7 @@
         <div class="row">
           <ul class="list-group list-group-horizontal">
             <li class="list-group-item"><a href="registration.html">Sign In</a></li>
-            <li class="list-group-item">My List</li>
+            <li class="list-group-item"><a href="myList.html">My List</a></li>
           </ul>
         </div>
       </div>
@@ -41,6 +122,7 @@
                 <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
                 <a class="dropdown-item" href="flights.html" style="color: #404040";>Book Flights</a>
                 <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
+                <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
                 <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
               </div>
             </div></li>
@@ -184,5 +266,8 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
       <script src="https://use.fontawesome.com/3d7be19efc.js"></script>
+
+
+
   </body>
 </html>

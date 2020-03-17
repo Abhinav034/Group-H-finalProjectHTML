@@ -41,6 +41,7 @@
                 <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
                 <a class="dropdown-item" href="flights.html" style="color: #404040";>Book Flights</a>
                 <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
+                <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
                 <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
               </div>
             </div></li>
@@ -123,6 +124,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/3d7be19efc.js"></script>
-    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript">
+
+    document.getElementById('btn-one-way').addEventListener('click', function(){
+      let departDate = document.getElementsByClassName('depart-date')[0];
+      departDate.style.width = "100%";
+      let returnDate = document.getElementsByClassName('return-date')[0];
+      returnDate.style.display = "none";
+
+    });
+
+    document.getElementById('btn-round-trip').addEventListener('click', function(){
+      let departDate = document.getElementsByClassName('depart-date')[0];
+      departDate.style.width = "47%";
+      let returnDate = document.getElementsByClassName('return-date')[0];
+      returnDate.style.display = "inline-block";
+
+    });
+
+    </script>
   </body>
 </html>

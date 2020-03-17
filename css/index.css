@@ -65,6 +65,11 @@ form.was-validated {
     width: 30%;
     margin: 2% 5%;
 }
+
+div.was-validated {
+    width: 30%;
+    margin: 2% 5%;
+}
 form.was-validated label {
     font-weight: 600;
     font-size: larger;

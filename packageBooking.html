@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name= "viewport" content="width=device-width , initial-scale=1.0">
+    <title>Project</title>
+
+    <script src="https://use.fontawesome.com/3d7be19efc.js"></script>
+
+    <!-- bootstrap cdn and javascript code -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/package.css">
+
+
+
+
+  </head>
+  <body >
+<nav class="navbar navbar-expand-lg navbar-dark ">
+
+  <!-- button appears while sizing down -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- commented div for centre the contents in nav bar -->
+  <!-- <div class="d-md-flex d-block flex-row mx-md-auto mx-0"> -->
+
+<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+<!-- ml-auto = margin left -->
+    <ul class="navbar-nav ml-auto">
+
+      <!-- navigation bar items -->
+      <li class="nav-item" > <a class="nav-link" href="index.html">Home</a></li>
+      <li class="nav-item"> <a class="nav-link" href="aboutUs.html">About us</a></li>
+
+      <li class="nav-item"> <div class="dropdown">
+        <!-- service dropdown -->
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Services
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
+          <a class="dropdown-item" href="#" style="color: #404040";>Book Flights</a>
+          <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
+          <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
+          <a class="dropdown-item" href="#" style="color: #404040";>Accomodation</a>
+        </div>
+      </div></li>
+      <li class="nav-item"> <a class="nav-link" href="contactUs.html">Contact us</a></li>
+
+    </ul>
+</div>
+</nav>
+<h2>Package Bookings</h2>
+<section>
+<br><br>
+<img src="images/packageImage.jpg" alt="contactUs Image"/>
+
+</section>
+<br><br>
+
+<!-- package selection -->
+<label for="countries">Choose a country:</label>
+<select id="countries">
+  <!-- <option value="Singapore">Singapore</option>
+  <option value="Dubai">Dubai</option>
+  <option value="Thailand">Thailand</option>
+  <option value="Paris">Paris</option> -->
+</select>
+
+<!-- days -->
+<label for="days">Select Travel period:</label>
+<select id="days">
+  <option value="5 Days">5 Days</option>
+  <option value="10 Days">10 Days</option>
+</select>
+
+<input type="text" id="date"/>
+
+<button type="button" name="button" onclick="getDescription()">Get Package details</button><br>
+
+<p id="op"></p>
+
+
+<br><br>
+<button type="button" name="button" onclick="BookPackage()">Book</button>
+
+<!-- footer below -->
+
+<br><br>
+<div class="row" style="margin-top:0;">
+  <div class="col-lg-12" id="footer">
+    <div class="footer" style="text-align:center; padding-top:15px;">
+      &copy; Copyright 2020. All Rights Reserved.
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+
+let openRequest = indexedDB.open("project", 1);
+openRequest.onsuccess = function(){
+  db = openRequest.result;
+  db.onversionchange = function() { db.close(); };
+
+  let transaction = db.transaction("package", "readwrite");
+  let packageTable = transaction.objectStore("package");
+  let county_select = document.getElementById("countries");
+
+  var request = packageTable.getAll();
+  request.onsuccess = function() {
+
+      var data  = request.result;
+      no_of_countries = data.length;
+
+      for(let i = 0; i < no_of_countries; i++){
+
+        let op = document.createElement("option");
+        op.setAttribute("value", data[i].country);
+        op.innerHTML = data[i].country;
+        county_select.appendChild(op);}
+       }
+
+
+};
+
+
+
+
+
+function getDescription(){
+
+
+  let openRequest = indexedDB.open("project", 1);
+  var db;
+
+  openRequest.onsuccess = function() { console.log("success");
+
+      db = openRequest.result;
+
+
+      db.onversionchange = function() { db.close(); };
+
+      let transaction = db.transaction("package", "readwrite");
+      let myListTable = transaction.objectStore("package");
+      let id = document.getElementById("countries").value;
+
+      var request = myListTable.get(id);
+      request.onsuccess = function() {
+
+          var p = request.result;
+          console.log(p);
+          var desc;
+
+          var duration = document.getElementById('days').value;
+
+          if (duration == "5 Days"){
+
+            desc = p.five_days.description;
+
+          }else{
+            desc = p.ten_days.description;
+          }
+
+          document.getElementById("op").innerHTML = "Package Description : " + desc;
+
+       }
+    }
+
+}
+
+
+function BookPackage(){
+  //
+  let openRequest = indexedDB.open("project", 1);
+  var db;
+
+
+
+  openRequest.onsuccess = function() { console.log("success");
+
+      db = openRequest.result;
+      db.onversionchange = function() { db.close(); };
+
+
+
+      var country_name = document.getElementById('countries').value;
+      var travel_date = document.getElementById('date').value;
+      var no_of_days = document.getElementById('days').value;
+
+
+      var objectData = {
+        label: "Package Booking" + new Date(),
+        country: country_name,
+        days: no_of_days,
+        travelDate: travel_date
+      };
+
+      let transaction2 = db.transaction("LogInUser", "readwrite");
+      let logInUser = transaction2.objectStore("LogInUser");
+
+      var r = logInUser.get("UN");
+      r.onsuccess = function() {
+
+        var unObject = r.result;
+        console.log(unObject);
+        var currentUser = unObject.v;
+
+        let transaction = db.transaction("allUsersData", "readwrite");
+        let allRequests = transaction.objectStore("allUsersData");
+        var req = allRequests.get(currentUser);
+
+              req.onsuccess = function() {
+
+              var userObject = req.result;
+
+              var reqArray = userObject.requestsList;
+
+              reqArray.push(objectData);
+
+
+
+              var updatedInfo = {
+                username: userObject.username,
+                password: userObject.password,
+                fullName: userObject.fullName,
+                email: userObject.email,
+                requestsList: reqArray
+              };
+              allRequests.put(updatedInfo);
+              alert("Booking successfull!!"); };
+
+      };
+
+
+
+    }// end of function
+
+}// end of function - book package
+
+
+
+</script>
+
+
+
+  </body>
+</html>
