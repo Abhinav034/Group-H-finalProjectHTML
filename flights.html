@@ -78,18 +78,18 @@
             <div class="dates">
               <div class="form-group depart-date">
                 <label for="depart">Departing:</label>
-                <input type="date" class="form-control" id="destination-date" required>
+                <input type="date" class="form-control" id="travelDate" required>
                 <div class="invalid-feedback">Required.</div>
               </div>
               <div class="form-group return-date">
                 <label for="return">Returning:</label>
-                <input type="date" class="form-control" id="returning-date" required>
+                <input type="date" class="form-control" id="returningDate" required>
                 <div class="invalid-feedback">Required.</div>
               </div>
             </div>
             <div class="form-group">
               <label for="uname">Passengers:</label>
-              <input type="text" class="form-control" placeholder="0 Adults, 0 Child" disabled>
+              <input id="total_pass" type="text" class="form-control" placeholder="0 Adults, 0 Child" required>
               <div class="choose-Passengers">
                 <div class="adults">
                   <p>Adults</p>
@@ -108,8 +108,9 @@
                   </div>
                 </div>
               </div>
+
             </div>
-            <button type="button" name="button" id="btn-flight">Book Flight</button>
+            <button type="button" name="button" id="btn-flight" onclick="saveData()">Book Flight</button>
 
           </div>
 
@@ -119,6 +120,81 @@
 
     </div>
 
+    <script>
+
+        // your script function
+        function saveData(){
+
+          
+
+          var a = document.getElementById('origin').value;
+          var b = document.getElementById('destination').value;
+          var c = document.getElementById('travelDate').value;
+          var d = document.getElementById('returningDate').value;
+          var e = document.getElementById("total_pass").value;
+
+          var data = {
+
+              label: "Flight Booking - " + new Date(),
+              Service_Name : "Flight Booking",
+              Flight_name : "Air Canada",
+              Details : ("From: " + a + "To:" + b),
+              travelDate: c + " - " + d,
+              no_of_passengers: e,
+              Price : "$700"
+          }
+
+          let openRequest = indexedDB.open("project", 1);
+          var db;
+
+          openRequest.onsuccess = function() { console.log("success");
+
+              db = openRequest.result;
+              db.onversionchange = function() { db.close(); };
+
+
+              let transaction2 = db.transaction("LogInUser", "readwrite");
+              let logInUser = transaction2.objectStore("LogInUser");
+
+              var r = logInUser.get("UN");
+              r.onsuccess = function() {
+
+                var unObject = r.result;
+                console.log(unObject);
+                var currentUser = unObject.v;
+
+                let transaction = db.transaction("allUsersData", "readwrite");
+                let allRequests = transaction.objectStore("allUsersData");
+                var req = allRequests.get(currentUser);
+
+                      req.onsuccess = function() {
+
+                      var userObject = req.result;
+
+                      var reqArray = userObject.requestsList;
+
+                      reqArray.push(data);
+
+
+
+                      var updatedInfo = {
+                        username: userObject.username,
+                        password: userObject.password,
+                        fullName: userObject.fullName,
+                        email: userObject.email,
+                        requestsList: reqArray
+                      };
+                      allRequests.put(updatedInfo);
+                      alert("Booking successfull!!"); };
+
+              };
+            }
+        }//eof
+
+
+
+
+    </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

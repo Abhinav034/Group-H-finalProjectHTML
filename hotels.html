@@ -57,17 +57,95 @@
       <h3>Find deals on hotels and much more..</h3>
       <h5>Search hotel for your destination.</h5>
 
+
+
       <div class="row" style="padding-right:2%; margin-top:2%;">
         <div class="col-lg-12">
-          <form action="/action_page.php">
+          <form>
             <label for="check-in">City:</label>
             <input type="text" id="city" name="check-in">
             <label for="check-in">Check-in:</label>
             <input type="date" id="check-in" name="check-in">
             <label for="check-in">Check-out:</label>
             <input type="date" id="check-out" name="check-out">
-            <input type="submit" value="Search">
+            <button type="button" name="button" onclick="saveData()">Book Now</button>
           </form>
+
+          <script type="text/javascript">
+
+            function saveData(){
+
+            
+
+              var a = document.getElementById('city').value;
+              var b = document.getElementById('check-in').value;
+              var c = document.getElementById('check-out').value;
+              var data = {
+
+                  label: "Hotel Booking - " + new Date(),
+                  Service_Name : "Hotel Booking",
+                  Hotel_Name : "Chelsea Hotel, Toronto",
+                  Duration : ("From: " + b + "To:" + c),
+                  Price : "$300"
+              }
+
+              let openRequest = indexedDB.open("project", 1);
+              var db;
+
+
+
+              openRequest.onsuccess = function() { console.log("success");
+
+                  db = openRequest.result;
+                  db.onversionchange = function() { db.close(); };
+
+
+                  let transaction2 = db.transaction("LogInUser", "readwrite");
+                  let logInUser = transaction2.objectStore("LogInUser");
+
+                  var r = logInUser.get("UN");
+                  r.onsuccess = function() {
+
+                    var unObject = r.result;
+                    console.log(unObject);
+                    var currentUser = unObject.v;
+
+                    let transaction = db.transaction("allUsersData", "readwrite");
+                    let allRequests = transaction.objectStore("allUsersData");
+                    var req = allRequests.get(currentUser);
+
+                          req.onsuccess = function() {
+
+                          var userObject = req.result;
+
+                          var reqArray = userObject.requestsList;
+
+                          reqArray.push(data);
+
+
+
+                          var updatedInfo = {
+                            username: userObject.username,
+                            password: userObject.password,
+                            fullName: userObject.fullName,
+                            email: userObject.email,
+                            requestsList: reqArray
+                          };
+                          allRequests.put(updatedInfo);
+                          alert("Booking successfull!!"); };
+
+                  };
+
+
+
+                }
+
+
+
+
+            }//eof
+
+          </script>
 
         </div>
       </div>
