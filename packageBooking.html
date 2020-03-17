@@ -13,59 +13,53 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/package.css">
-
-
-
+    <link rel="stylesheet" href="css/index.css">
 
   </head>
   <body >
-<nav class="navbar navbar-expand-lg navbar-dark ">
+    <div class="container-fluid">
+      <div class="top-bar">
+        <div class="row">
+          <ul class="list-group list-group-horizontal">
+            <li id="signin" class="list-group-item"><a href="registration.html">Sign In</a></li>
+            <li id="mylist" class="list-group-item"><a href="myList.html">My List</a></li>
+            <li id="signout" class="list-group-item"><a href="myList.html" onclick="signOut()">Sign Out</a></li>
 
-  <!-- button appears while sizing down -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <!-- commented div for centre the contents in nav bar -->
-  <!-- <div class="d-md-flex d-block flex-row mx-md-auto mx-0"> -->
-  <div class="container-fluid">
-    <div class="top-bar">
-      <div class="row">
-        <ul class="list-group list-group-horizontal">
-          <li id="signin" class="list-group-item"><a href="registration.html">Sign In</a></li>
-          <li id="mylist" class="list-group-item"><a href="myList.html">My List</a></li>
-          <li id="signout" class="list-group-item"><a href="myList.html" onclick="signOut()">Sign Out</a></li>
-
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-<!-- ml-auto = margin left -->
-    <ul class="navbar-nav ml-auto">
-
-      <!-- navigation bar items -->
-      <li class="nav-item" > <a class="nav-link" href="index.html">Home</a></li>
-      <li class="nav-item"> <a class="nav-link" href="aboutUs.html">About us</a></li>
-
-      <li class="nav-item"> <div class="dropdown">
-        <!-- service dropdown -->
-        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Services
+      <nav class="navbar navbar-expand-lg navbar-dark ">
+        <!-- button appears while sizing down -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#secondNavbar" aria-controls="secondNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
-          <a class="dropdown-item" href="#" style="color: #404040";>Book Flights</a>
-          <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
-          <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
 
+        <div class="collapse navbar-collapse" id="secondNavbar">
+      <!-- ml-auto = margin left  ml-auto -->
+          <ul class="navbar-nav">
+
+          <!-- navigation bar items -->
+            <li class="nav-item" > <a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"> <a class="nav-link" href="aboutUs.html">About us</a></li>
+
+            <li class="nav-item"> <div class="dropdown">
+              <!-- service dropdown -->
+              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Services
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="hotels.html" style="color: #404040;">Hotel Booking</a>
+                <a class="dropdown-item" href="flights.html" style="color: #404040";>Book Flights</a>
+                <a class="dropdown-item" href="bus_train.html" style="color: #404040";>Bus/Train Booking</a>
+                <a class="dropdown-item" href="packageBooking.html" style="color: #404040";>Package Booking</a>
+              </div>
+            </div></li>
+            <li class="nav-item"> <a class="nav-link" href="docs\AbhinavResumeFinal.pdf">Contact us</a></li>
+
+          </ul>
         </div>
-      </div></li>
-      <li class="nav-item"> <a class="nav-link" href="contactUs.html">Contact us</a></li>
-
-    </ul>
-</div>
-</nav>
+      </nav>
 <h2>Package Bookings</h2>
 <section>
 <br><br>
@@ -141,7 +135,7 @@ openRequest.onsuccess = function(){
 
 };
 
-
+var p;
 
 
 
@@ -165,7 +159,7 @@ function getDescription(){
       var request = myListTable.get(id);
       request.onsuccess = function() {
 
-          var p = request.result;
+          p = request.result;
           console.log(p);
           var desc;
 
@@ -207,10 +201,14 @@ function BookPackage(){
 
 
       var objectData = {
-        label: "Package Booking - " + new Date(),
-        country: country_name,
-        days: no_of_days,
-        travelDate: travel_date
+
+          Service_Name : "Travel Package Booking",
+          Details : country_name,
+          person : 2,
+          Duration : (travel_date + " : " + no_of_days),
+          Price : "CAD $ 5800",
+          Service_Booking_Date : new Date()
+
       };
 
       let transaction2 = db.transaction("LogInUser", "readwrite");

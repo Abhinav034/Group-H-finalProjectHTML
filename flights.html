@@ -135,15 +135,18 @@
           var d = document.getElementById('returningDate').value;
           var e = document.getElementById("total_pass").value;
 
+
+
+
+
           var data = {
 
-              label: "Flight Booking - " + new Date(),
-              Service_Name : "Flight Booking",
-              Flight_name : "Air Canada",
-              Details : ("From: " + a + "To:" + b),
-              travelDate: c + " - " + d,
-              no_of_passengers: e,
-              Price : "$700"
+            Service_Name : "Flight Booking",
+            Details : "Air Canada - " + ("From: " + a + "To:" + b),
+            person : e,
+            Duration : (c + " - " + d),
+            Price : "CAD $ 780",
+            Service_Booking_Date : new Date()
           }
 
           let openRequest = indexedDB.open("project", 1);
