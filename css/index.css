@@ -96,3 +96,7 @@ form.was-validated label {
 .registration-form{
   display: none;
 }
+#logo:hover {
+  color:green;
+  text-decoration:none;
+}
