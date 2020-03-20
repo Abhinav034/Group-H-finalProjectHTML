@@ -5,6 +5,10 @@ body{
 .container-fluid{
   padding: 0px;
 }
+.top-bar {
+    background-color: #ed2626;
+    display: flow-root;
+}
 .top-bar .row {
     margin: 0;
     float: right;
@@ -13,6 +17,10 @@ body{
     border: none;
     padding: 0.2rem 1.25rem;
     font-size: 15px;
+    background-color: #ed2626;
+}
+.top-bar a {
+    color: white;
 }
 .navbar{
   background: #ed2626;
@@ -55,9 +63,30 @@ body{
 .slider.row {
     margin: 0;
 }
+.row.footer {
+    /* background-color: #2271b7; */
+    border-top: 1px solid #ed2626;
+}
+.col-lg-12.footer {
+    text-align: center;
+    background-color: #d6d5d5;
+}
+.footer .btn {
+    background-color: #e6e5e5;
+    border-color: #000000;
+    color: #000000;
+}
+.footer .btn:hover{
+  background-color: #ed2626;
+  color: #ffffff;
+  border-color: #ed2626;
+}
 #footer{
-  background:grey;
+  background:#ed2626;
   height:3em;
+}
+#footer .footer {
+    color: white;
 }
 
 /* registration/ sign in page */
